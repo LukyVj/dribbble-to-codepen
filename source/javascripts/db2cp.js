@@ -52,7 +52,7 @@
     });
   };
 
-  getJSON('http://crossorigin.me/' + dbUrl).then(function(data) {
+  getJSON(`http://crossorigin.me/${dbUrl}`).then(function(data) {
     console.log(data)
     const shotUrl = data.querySelector('.the-shot');
     const dbColorsSource = data.querySelector('.color-chips.group').children;
@@ -71,9 +71,9 @@
       colorsArray.push(`<li data-color="${e.querySelector('a').textContent}" style="width:100%;margin-bottom:1em;font-family:courier;line-height: 1.3"><span style="${colorSwatchBadgeStyle} background: ${e.querySelector('a').textContent}"></span>${e.querySelector('a').textContent}</li>`);
     });
 
-    dbShotName.textContent = '🏀 ' + shotName;
-    dbAuthorName.textContent = '👤' + authorName;
-    dbColorSwatch.innerHTML = '<ul style="list-style:none;padding:0;">'+ String(colorsArray).replace(/,/g, "") + '</ul>';
+    dbShotName.textContent = `🏀  ${shotName}`;
+    dbAuthorName.textContent = `👤 ${authorName}`;
+    dbColorSwatch.innerHTML = `<ul style="list-style:none;padding:0;">${String(colorsArray).replace(/,/g, "")}</ul>`;
   });
 
 // Build the dropdown
@@ -152,7 +152,7 @@
   dbShotWrapper.setAttribute('style', String(db2cpShotWrapperStyle).replace(/,/g, ""));
   dbColorSwatch.setAttribute('style', String(db2cpColorSwatchStyle).replace(/,/g, ""));
   dbImage.setAttribute('style', String(db2cpImgStyle).replace(/,/g, ""));
-  dbImage.setAttribute('onerror', 'this.src=\'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNzRweCIgaGVpZ2h0PSIyMTZweCIgdmlld0JveD0iMCAwIDI3NCAyMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+R3JvdXA8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8cmVjdCBpZD0icGF0aC0xIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjc0IiBoZWlnaHQ9IjIxNiI+PC9yZWN0PiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzQiIGhlaWdodD0iMjE2IiBmaWxsPSJ3aGl0ZSI+ICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4gICAgICAgIDwvbWFzaz4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJHcm91cCI+ICAgICAgICAgICAgPHVzZSBpZD0iUmVjdGFuZ2xlLTIiIHN0cm9rZT0iI0JCQkJCQiIgbWFzaz0idXJsKCNtYXNrLTIpIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9IiNGM0YzRjMiIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPiAgICAgICAgICAgIDx0ZXh0IGlkPSJVaC1vaC06KCIgb3BhY2l0eT0iMC4zOTE5ODM2OTYiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2FOZXVlLUJvbGQsIEhlbHZldGljYSBOZXVlIiBmb250LXNpemU9IjU1IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzAwMDAwMCI+ICAgICAgICAgICAgICAgIDx0c3BhbiB4PSIzNSIgeT0iMTExIj5VaCBvaCA6KDwvdHNwYW4+ICAgICAgICAgICAgPC90ZXh0PiAgICAgICAgICAgIDx0ZXh0IGlkPSJpbWFnZS1ub3QtbG9hZGVkIiBvcGFjaXR5PSIwLjM5MTk4MzY5NiIgZm9udC1mYW1pbHk9IkhlbHZldGljYU5ldWUtQm9sZCwgSGVsdmV0aWNhIE5ldWUiIGZvbnQtc2l6ZT0iMjUiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDAwMDAwIj4gICAgICAgICAgICAgICAgPHRzcGFuIHg9IjM1IiB5PSIxNDciPmltYWdlIG5vdCBsb2FkZWQ8L3RzcGFuPiAgICAgICAgICAgIDwvdGV4dD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==\'');
+  dbImage.setAttribute('onerror', 'this.src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNzRweCIgaGVpZ2h0PSIyMTZweCIgdmlld0JveD0iMCAwIDI3NCAyMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+R3JvdXA8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8cmVjdCBpZD0icGF0aC0xIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjc0IiBoZWlnaHQ9IjIxNiI+PC9yZWN0PiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgbWFza0NvbnRlbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hc2tVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHg9IjAiIHk9IjAiIHdpZHRoPSIyNzQiIGhlaWdodD0iMjE2IiBmaWxsPSJ3aGl0ZSI+ICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4gICAgICAgIDwvbWFzaz4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJHcm91cCI+ICAgICAgICAgICAgPHVzZSBpZD0iUmVjdGFuZ2xlLTIiIHN0cm9rZT0iI0JCQkJCQiIgbWFzaz0idXJsKCNtYXNrLTIpIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9IiNGM0YzRjMiIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPiAgICAgICAgICAgIDx0ZXh0IGlkPSJVaC1vaC06KCIgb3BhY2l0eT0iMC4zOTE5ODM2OTYiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2FOZXVlLUJvbGQsIEhlbHZldGljYSBOZXVlIiBmb250LXNpemU9IjU1IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzAwMDAwMCI+ICAgICAgICAgICAgICAgIDx0c3BhbiB4PSIzNSIgeT0iMTExIj5VaCBvaCA6KDwvdHNwYW4+ICAgICAgICAgICAgPC90ZXh0PiAgICAgICAgICAgIDx0ZXh0IGlkPSJpbWFnZS1ub3QtbG9hZGVkIiBvcGFjaXR5PSIwLjM5MTk4MzY5NiIgZm9udC1mYW1pbHk9IkhlbHZldGljYU5ldWUtQm9sZCwgSGVsdmV0aWNhIE5ldWUiIGZvbnQtc2l6ZT0iMjUiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDAwMDAwIj4gICAgICAgICAgICAgICAgPHRzcGFuIHg9IjM1IiB5PSIxNDciPmltYWdlIG5vdCBsb2FkZWQ8L3RzcGFuPiAgICAgICAgICAgIDwvdGV4dD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg=="');
 
   dbShotUrl.innerHTML = `🔗 <a href="${dbUrl}" style="color:inherit;text-decoration: none">${dbUrl}</a>`;
   dbImgContainer.appendChild(dbImage);
