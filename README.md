@@ -2,6 +2,9 @@
 
 To help you doing your Dribbble to Codepen thing
 
+# Demo
+![](https://puu.sh/sfJ1h/f5197dc451.gif)
+
 # Usage
 
 1. Link the script
