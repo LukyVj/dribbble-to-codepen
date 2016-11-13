@@ -1,9 +1,9 @@
 (function() {
-	class DribbbleToCodepen extends HTMLElement {
-		constructor() {
-			super();
-		}
-	}
+  class DribbbleToCodepen extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
 
   // Define the new element
   customElements.define('dribbble-to-codepen', DribbbleToCodepen);
@@ -31,56 +31,56 @@
 
   // Request the dribbble page, and fill in variables
   var getJSON = function(url) {
-  	return new Promise(function(resolve, reject) {
-  		var xhr = new XMLHttpRequest();
-  		xhr.open('get', url, true);
-  		xhr.responseType = 'document';
-  		xhr.onload = function() {
-  			var status = xhr.status;
-  			if (status == 200) {
-  				resolve(xhr.response);
-  			} else {
-  				reject(status);
-  			}
-  		};
-  		xhr.send();
-  	});
+    return new Promise(function(resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', url, true);
+      xhr.responseType = 'document';
+      xhr.onload = function() {
+        var status = xhr.status;
+        if (status == 200) {
+          resolve(xhr.response);
+        } else {
+          reject(status);
+        }
+      };
+      xhr.send();
+    });
   };
 
   function setStyle(element, styleBlock, edits) {
-  	if ( edits ) {
-  		return element.setAttribute('style', styleBlock.join('') + edits);
-  	} else {
-  		return element.setAttribute('style', styleBlock.join(''));
-  	}
+    if ( edits ) {
+      return element.setAttribute('style', styleBlock.join('') + edits);
+    } else {
+      return element.setAttribute('style', styleBlock.join(''));
+    }
   }
 
   function addClass(element, className) {
-  	return element.classList.add(className);
+    return element.classList.add(className);
   }
 
   getJSON(`http://crossorigin.me/${dbUrl}`).then( (data) => {
-  	console.log(data)
-  	const shotUrl = data.querySelector('.the-shot');
-  	const dbColorsSource = data.querySelector('.color-chips.group').children;
-  	const shotName = data.querySelector('.slat-header h1').textContent;
-  	const authorName = data.querySelector('.shot-byline-user').textContent;
-  	let dbColorsArray = [];
-  	let colorsArray = [];
-  	let colorsTeplate = ``;
-  	dbImage.src = shotUrl.getAttribute('data-img-src');
+    console.log(data)
+    const shotUrl = data.querySelector('.the-shot');
+    const dbColorsSource = data.querySelector('.color-chips.group').children;
+    const shotName = data.querySelector('.slat-header h1').textContent;
+    const authorName = data.querySelector('.shot-byline-user').textContent;
+    let dbColorsArray = [];
+    let colorsArray = [];
+    let colorsTeplate = ``;
+    dbImage.src = shotUrl.getAttribute('data-img-src');
 
-  	for (var i = 0; i < dbColorsSource.length; i++) {
-  		dbColorsArray.push(dbColorsSource[i]);
-  	}
+    for (var i = 0; i < dbColorsSource.length; i++) {
+      dbColorsArray.push(dbColorsSource[i]);
+    }
 
-  	dbColorsArray.forEach(function(e, s) {
-  		colorsArray.push(`<li data-color="${e.querySelector('a').textContent}" style="width:100%;margin-bottom:1em;font-family:courier;line-height: 1.3"><span style="${colorSwatchBadgeStyle} background: ${e.querySelector('a').textContent}"></span>${e.querySelector('a').textContent}</li>`);
-  	});
+    dbColorsArray.forEach(function(e, s) {
+      colorsArray.push(`<li data-color="${e.querySelector('a').textContent}" style="width:100%;margin-bottom:1em;font-family:courier;line-height: 1.3"><span style="${colorSwatchBadgeStyle} background: ${e.querySelector('a').textContent}"></span>${e.querySelector('a').textContent}</li>`);
+    });
 
-  	dbShotName.textContent = `🏀  ${shotName}`;
-  	dbAuthorName.textContent = `👤 ${authorName}`;
-  	dbColorSwatch.innerHTML = `<ul style="list-style:none;padding:0;">${colorsArray.join('')}</ul>`;
+    dbShotName.textContent = `🏀  ${shotName}`;
+    dbAuthorName.textContent = `👤 ${authorName}`;
+    dbColorSwatch.innerHTML = `<ul style="list-style:none;padding:0;">${colorsArray.join('')}</ul>`;
   });
 
 
@@ -174,13 +174,13 @@ db2cp.appendChild(dbContainer);
 
 
 db2cp.onmouseover = function() {
-	this.style.webkitTransform = 'translateY(-10vh)';
-	this.style.transform = 'translateY(-10vh)';
+  this.style.webkitTransform = 'translateY(-10vh)';
+  this.style.transform = 'translateY(-10vh)';
 }
 
 db2cp.onmouseleave = function() {
-	this.style.webkitTransform = 'translateY(-98vh)';
-	this.style.transform = 'translateY(-98vh)';
+  this.style.webkitTransform = 'translateY(-98vh)';
+  this.style.transform = 'translateY(-98vh)';
 }
 }());
 
