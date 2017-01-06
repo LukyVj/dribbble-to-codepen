@@ -1,5 +1,4 @@
 # dribbble-to-codepen
-## [ ⚠️ DEPRECATED ⚠️ ]
 
 To help you doing your Dribbble to Codepen thing
 
@@ -10,12 +9,12 @@ To help you doing your Dribbble to Codepen thing
 
 1. Link the script
 
-    > for example use rawgit (<https://rawgit.com/LukyVj/dribbble-to-codepen/master/source/javascripts/db2cp.js>)
+    > for example use rawgit (<https://rawgit.com/LukyVj/dribbble-to-codepen/master/dist/db2cp.js>)
 
 2. Add a custom element to the html
 
     ```html
-    <dribbble-to-codepen 
+    <dribbble-to-codepen
         data-url="https://dribbble.com/shots/3067776-Pie-Chart">
     </dribbble-to-codepen>
     ```
